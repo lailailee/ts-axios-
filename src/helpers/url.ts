@@ -34,9 +34,8 @@ export function buildURL(url: string, params?: any): string {
       } else if (isPlainObject(val)) {
         val = JSON.stringify(val)
       }
+      parts.push(`${encode(key)}=${encode(val)}`)
     })
-
-    parts.push(`${encode(key)}=${encode(val)}`)
   })
 
   let serializedParams = parts.join('&')
